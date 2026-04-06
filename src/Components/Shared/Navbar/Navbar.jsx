@@ -1,12 +1,11 @@
-import React, { useState } from "react";
-import { Link } from "react-router";
+import React from "react";
+import { Link, NavLink } from "react-router";
 
 const Navbar = () => {
-  const [selectedType, setSelectedType] = useState("home");
   return (
     <div class="bg-base-100 shadow-sm">
       <div className="navbar container mx-auto">
-        <div class="navbar-start">
+        <div class="navbar-start gap-2">
           <div class="dropdown">
             <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
               <svg
@@ -27,57 +26,79 @@ const Navbar = () => {
             </div>
             <ul
               tabindex="-1"
-              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow space-y-2"
             >
               <li>
-                <a>Item 1</a>
+                <NavLink
+                  to={"/"}
+                  className={({ isActive }) =>
+                    `${isActive ? "border border-green-500 text-green-500" : ""} font-bold`
+                  }
+                >
+                  Home
+                </NavLink>
               </li>
               <li>
-                <a>Parent</a>
-                <ul class="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
+                <NavLink
+                  to={"/books"}
+                  className={({ isActive }) =>
+                    `${isActive ? "border border-green-500 text-green-500" : ""} font-bold`
+                  }
+                >
+                  Listed Books
+                </NavLink>
               </li>
               <li>
-                <a>Item 3</a>
+                <NavLink
+                  to={"/page-to-read"}
+                  className={({ isActive }) =>
+                    `${isActive ? "border border-green-500 text-green-500" : ""} font-bold`
+                  }
+                >
+                  Page to Read
+                </NavLink>
               </li>
+              <a class="btn bg-green-700 text-white">Sign In</a>
+              <a class="btn bg-[#59C6D2] text-white">Sign Up</a>
             </ul>
           </div>
-          <a class="text-xl font-bold">Book Vibe</a>
+          <a class="text-base md:text-xl font-bold">Book Vibe</a>
         </div>
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal px-1 gap-4">
             <li>
-              <Link
+              <NavLink
                 to={"/"}
-                className=""
+                className={({ isActive }) =>
+                  `${isActive ? "border border-green-500 text-green-500" : ""} font-bold`
+                }
               >
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link
+              <NavLink
                 to={"/books"}
-                
+                className={({ isActive }) =>
+                  `${isActive ? "border border-green-500 text-green-500" : ""} font-bold`
+                }
               >
                 Listed Books
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link
+              <NavLink
                 to={"/page-to-read"}
+                className={({ isActive }) =>
+                  `${isActive ? "border border-green-500 text-green-500" : ""} font-bold`
+                }
               >
                 Page to Read
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </div>
-        <div class="navbar-end gap-2">
+        <div class="navbar-end gap-2 hidden md:flex">
           <a class="btn bg-green-700 text-white">Sign In</a>
           <a class="btn bg-[#59C6D2] text-white">Sign Up</a>
         </div>

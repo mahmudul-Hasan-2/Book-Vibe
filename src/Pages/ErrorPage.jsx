@@ -2,7 +2,7 @@ import { Link } from "react-router";
 
 const ErrorPage = () => {
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center justify-center p-5 overflow-hidden font-sans">
+    <div className="my-3 bg-white flex flex-col items-center justify-center p-5 overflow-hidden font-sans">
       {/* Visual Section */}
       <div className="relative mb-8">
         {/* Soft Background Pulse */}
