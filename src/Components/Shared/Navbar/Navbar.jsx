@@ -50,7 +50,7 @@ const Navbar = () => {
               </li>
               <li>
                 <NavLink
-                  to={"/page-to-read"}
+                  to={"/pageToRead"}
                   className={({ isActive }) =>
                     `${isActive ? "border border-green-500 text-green-500" : ""} font-bold`
                   }

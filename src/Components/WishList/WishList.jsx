@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { BooksContext } from "../../Context/Context";
 import WishListCard from "../../UI/WishListCard";
+import WishListEmptyMessage from "../../Pages/WishListEmptyMessage/WishListEmptyMessage";
 
 const WishList = ({ sortingType }) => {
   const { wishListBooks, setWishListBooks } = useContext(BooksContext);
@@ -21,10 +22,16 @@ const WishList = ({ sortingType }) => {
     }
   }, [sortingType, setWishListBooks]);
   return (
-    <div>
-      {wishListBooks.map((wishList) => (
-        <WishListCard wishList={wishList}></WishListCard>
-      ))}
+    <div className="mt-8">
+      {wishListBooks.length === 0 ? (
+        <WishListEmptyMessage />
+      ) : (
+        <div className="space-y-6">
+          {wishListBooks.map((wishList) => (
+            <WishListCard wishList={wishList}></WishListCard>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

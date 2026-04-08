@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { BooksContext } from "../../Context/Context";
 import ReadListCard from "../../UI/ReadListCard";
+import ReadListEmpty from "../../Pages/ReadListEmpty/ReadListEmpty";
 
 const ReadList = ({ sortingType }) => {
   const { readListBooks, setReadListBooks } = useContext(BooksContext);
@@ -22,10 +23,19 @@ const ReadList = ({ sortingType }) => {
     }
   }, [sortingType, setReadListBooks]);
   return (
-    <div className="mt-8 space-y-6">
-      {readListBooks.map((readListBook, ind) => (
-        <ReadListCard key={ind} readListBook={readListBook}></ReadListCard>
-      ))}
+    <div className="mt-8">
+        {readListBooks.length === 0 ? (
+          <ReadListEmpty />
+        ) : (
+          <div className="space-y-6">
+            {readListBooks.map((readListBook, ind) => (
+              <ReadListCard
+                key={ind}
+                readListBook={readListBook}
+              ></ReadListCard>
+            ))}
+          </div>
+        )}
     </div>
   );
 };
