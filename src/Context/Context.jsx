@@ -24,9 +24,8 @@ const Context = ({ children }) => {
     console.log(getWishListFromLocalDB2);
     setWishListBooks(getWishListFromLocalDB2);
   }, []);
-
+  
   const handleReadList = (currentBooks) => {
-    addReadListToLocalDB(currentBooks);
     let finding1 = readListBooks.find(
       (readList) => readList.bookId === currentBooks.bookId,
     );
@@ -42,10 +41,10 @@ const Context = ({ children }) => {
     } else {
       toast.success(`${currentBooks.bookName} is Added to Read List`);
       setReadListBooks((prev) => [...prev, currentBooks]);
+      addReadListToLocalDB(currentBooks);
     }
   };
   const handleWishList = (currentBooks) => {
-    addWishListToLocalDB(currentBooks);
     let finding2 = wishListBooks.find(
       (wishList) => wishList.bookId === currentBooks.bookId,
     );
@@ -60,6 +59,7 @@ const Context = ({ children }) => {
     } else {
       toast.success(`${currentBooks.bookName} is Added to Wish List`);
       setWishListBooks((prev) => [...prev, currentBooks]);
+      addWishListToLocalDB(currentBooks);
     }
   };
   const data = {
