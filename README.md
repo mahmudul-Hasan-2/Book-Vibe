@@ -58,5 +58,6 @@ npm install
 *** 4. Start the local development server ***
 ```Bash
 npm run dev
-Open your browser and navigate to the local address displayed in your terminal (usually http://localhost:5173).
 ```
+
+Open your browser and navigate to the local address displayed in your terminal (usually http://localhost:5173).
